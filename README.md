@@ -3,7 +3,7 @@ Python utility to transform audio import from Stylophone (or other similar instr
 Environment: python <=3.11
 ```
 conda install -c conda-forge numpy pyaudio aubio mido
-pip install rtmidi
+pip install python-rtmidi
 ```
 Usage: 
 ```
