@@ -6,7 +6,7 @@ import mido
 from mido import Message
 
 # MIDI Setup
-midi_output = mido.open_output(sys.argv[1])  # Replace with your port name
+midi_output = mido.open_output(sys.argv[1])
 
 # Audio Setup
 buffer_size = 512
@@ -32,8 +32,6 @@ def freq_to_midi(freq):
         return None
     return int(69 + 12 * np.log2(freq / 440.0))
 
-# ... (previous setup code remains the same)
-
 try:
     print("Starting...")
     while True:
@@ -43,7 +41,7 @@ try:
         freq = pitch_detector(samples)[0]
         amplitude = np.sum(samples**2) / len(samples)
         
-        if amplitude > 0.00003 and freq > 20:
+        if amplitude > 0.001 and freq > 20:
             note = freq_to_midi(freq)
             print(note)
             if note is not None:
@@ -58,8 +56,6 @@ try:
             if current_note is not None:
                 midi_output.send(Message('note_off', note=current_note, channel=0))
                 current_note = None
-
-# ... (rest of the code remains the same)
 
 except KeyboardInterrupt:
     print("Stopping...")
