@@ -1,0 +1,10 @@
+C4,a
+D4,s
+E4,d
+F4,f
+G4,g
+A4,h
+B4,j
+C5,k
+# Format: [Note][Octave], [Key]
+# Example: C4, a (maps middle C to the 'a' key)
